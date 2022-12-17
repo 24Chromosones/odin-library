@@ -12,10 +12,15 @@ function Book(name, author, pages, read) {
 
 const addBookToLibrary = (form) => {
     let formData = new FormData(form)
+    formData = Object.values(Object.fromEntries(formData))
 
-    for (let data of formData) {
-        console.log(data)
-    }
+    const name = formData[0]
+    const author = formData[1]
+    const pages = formData[2]
+
+    myLibrary.push(new Book(name, author, pages, false))
+    renderBooks()
+
 }
 
 const addBook = document.querySelector('#add-book')
@@ -47,6 +52,7 @@ function renderBooks() {
         pages.innerHTML = book.pages
         read.innerHTML = `<button class="is-read ${book.read === true ? 'read' : 'unread'}">${book.read === true ? "Read" : "Unread"}</button>`
         deleteButton.innerHTML = `<button data-index=${i} class="delete-button">Delete</button>`
+        row.dataset.index = i.toString()
         i++
     })
 
@@ -64,7 +70,15 @@ function renderBooks() {
 
     for (let button of readButton) {
         button.addEventListener('click', (e) => {
-            
+            if (e.target.classList.contains('read')) {
+                const index = e.target.parentElement.parentElement.dataset.index
+                myLibrary[index].read = false
+                renderBooks()
+            } else {
+                const index = e.target.parentElement.parentElement.dataset.index
+                myLibrary[index].read = true
+                renderBooks()
+            }
         })
     }
 }
