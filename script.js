@@ -1,0 +1,74 @@
+let myLibrary = [new Book('a', 'b', 2, false), new Book('c', 'd', 3, true)];
+
+booksDiv = document.querySelector(".books")
+
+function Book(name, author, pages, read) {
+    // the constructor...
+    this.name = name
+    this.author = author
+    this.pages = pages
+    this.read = read
+}
+
+const addBookToLibrary = (form) => {
+    let formData = new FormData(form)
+
+    for (let data of formData) {
+        console.log(data)
+    }
+}
+
+const addBook = document.querySelector('#add-book')
+addBook.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    addBookToLibrary(e.target)
+})
+
+function renderBooks() {
+    booksDiv.innerHTML = `
+             <tr>
+                <th>Book</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            `
+    let i = 0
+    myLibrary.forEach((book) => {
+        let row = booksDiv.insertRow(booksDiv.rows.length)
+        const name = row.insertCell(0)
+        const author = row.insertCell(1)
+        const pages = row.insertCell(2)
+        const read = row.insertCell(3)
+        const deleteButton = row.insertCell(4)
+        name.innerHTML = book.name
+        author.innerHTML = book.author
+        pages.innerHTML = book.pages
+        read.innerHTML = `<button class="is-read ${book.read === true ? 'read' : 'unread'}">${book.read === true ? "Read" : "Unread"}</button>`
+        deleteButton.innerHTML = `<button data-index=${i} class="delete-button">Delete</button>`
+        i++
+    })
+
+    const deleteButton = document.querySelectorAll('.delete-button')
+
+    deleteButton.forEach((book) => {
+        book.addEventListener('click', (e)=>{
+            const index = parseInt(e.target.dataset.index)
+            myLibrary.splice(index, 1)
+            renderBooks()
+        })
+    })
+
+    const readButton = document.querySelectorAll('.is-read')
+
+    for (let button of readButton) {
+        button.addEventListener('click', (e) => {
+            
+        })
+    }
+}
+
+
+
+renderBooks()
