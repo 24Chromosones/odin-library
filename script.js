@@ -1,4 +1,5 @@
-let myLibrary = [new Book('a', 'b', 2, false), new Book('c', 'd', 3, true)];
+let myLibrary = [new Book('a', 'b', 2, false),
+    new Book('c', 'd', 3, true)];
 
 booksDiv = document.querySelector(".books")
 
@@ -20,7 +21,6 @@ const addBookToLibrary = (form) => {
 
     myLibrary.push(new Book(name, author, pages, false))
     renderBooks()
-
 }
 
 const addBook = document.querySelector('#add-book')
@@ -38,6 +38,7 @@ function renderBooks() {
                 <th>Status</th>
                 <th></th>
               </tr>
+
             `
     let i = 0
     myLibrary.forEach((book) => {

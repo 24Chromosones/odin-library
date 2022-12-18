@@ -3,6 +3,11 @@ body {
   flex-direction: column;
   align-items: center;
   --total-width: 1000px;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1, h2 {
+  font-family: Raleway;
 }
 
 button {
@@ -12,8 +17,8 @@ button {
 #add-book {
   display: flex;
   width: var(--total-width);
-  justify-content: space-between;
   align-items: center;
+  gap: 80px
 }
 
 .book-input {
@@ -34,21 +39,100 @@ button {
 .categories {
   width: var(--total-width);
   display: flex;
-  gap: 150px;
+  gap: 100px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 20px;
+}
+
+input {
+  height: 20px;
+  width: 200px;
 }
 
 .add-button {
   height: 30px;
   width: 200px;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #00460ECC;
+  background-color: rgba(72, 248, 107, 0.1);
+}
+
+.add-button:hover {
+  background-color: rgba(72, 248, 107, 0.2);
+  
+}
+
+.is-read {
+  width: 100px;
+  height: 30px;
+  background-color: rgba(0, 119, 178, 0.1);
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #004a9e;
+  font-size: 15px;
+}
+
+.is-read:hover {
+  background-color: rgba(0, 119, 178, 0.2);
+}
+
+.delete-button {
+  width: 100px;
+  height: 30px;
+  background-color: rgba(172, 0, 0, 0.1);
+  border-style: solid;
+  border-radius: 20px;
+  border-color: #ce0000;
+  font-size: 15px;
+  color: #760000;
+}
+
+.delete-button:hover {
+  background-color: rgba(172, 0, 0, 0.2);
+}
+
+hr {
+  border-top: 1px solid;
+  border-color: #d0d0d0;
+  width: 50%;
+  margin: 20px
 }
 
 .book {
   display: flex;
-
   gap: 200px;
   width: 100%;
 }
 
 td, th {
   text-align: center;
+
+}
+
+table {
+  border-spacing: 20px;
+
+}
+
+tr {
+  border-bottom: 1px solid;
+}
+
+th {
+  font-size: 20px;
 }

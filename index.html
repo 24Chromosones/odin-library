@@ -9,31 +9,39 @@
         href="https://fonts.googleapis.com/css?family=Nanum+Gothic">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <title>Library</title>
 </head>
 <body>
   <h1>Library</h1>
 
   <form action="" id="add-book">
-    <h2>Add Book</h2>
+    <h2 >Add Book</h2>
     <div class="book-input">
-      <label for="book">Book</label>
-      <input type="text" name="book" id="book">
+      <div class="label-input">
+        <label for="book">Book</label>
+        <input type="text" name="book" id="book" required>
+      </div>
     </div>
   
     <div class="book-input">
-      <label for="author">Author</label>
-      <input type="text" name="author" id="author">
+      <div class="label-input">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" required>
+      </div>
     </div>
     <div class="book-input">
-      <label for="num-page">Number of Pages</label>
-      <input type="number" name="num-page" id="num-page">
+      <div class="label-input">
+        <label for="num-page">Number of Pages</label>
+        <input type="number" name="num-page" id="num-page" required>
+      </div>
     </div>
     
   </form>
   
   <button type="submit" class="add-button" form="add-book">Add</button>
-
+  
+  <hr>
   
   <div class="book-section">
     <table class="books">
