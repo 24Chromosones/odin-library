@@ -1,4 +1,4 @@
-let myLibrary = [new Book('Great Gatby', 'F. Scott Fitzgerald', 208, true),
+let myLibrary = [new Book('Great Gatsby', 'F. Scott Fitzgerald', 208, true),
     new Book('Crime and Punishment', 'Fyodor Dostoevsky', 430, false)];
 
 booksDiv = document.querySelector(".books")
